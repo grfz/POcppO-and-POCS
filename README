@@ -1,0 +1,32 @@
+POcppO-and-POCS
+===============
+
+Plain Old c++ Object and Plain Old C Structure header file builder
+
+Sometimes I need to build headers for some simple objects (or structs).
+These programs are for build the skeletons.
+Skeletons in .hpp files includes
+- simple get-set methods
+- constructors ( by properties, by copy, from CSV)
+- serializer (from CSV)
+- destructor
+- a show() method for debug
+Skeletons in .h files includes
+- simple get-set functions
+- constructors ( by properties, by copy, from CSV)
+- serializer (from CSV)
+- destructor
+- a show() function for debug
+
+to compile:
+gcc POCS.c -o POCS
+g++ POcppO.cpp -o POcppO
+(I know: it pops some warnings - just ignore them, they are for char* instead of string class)
+USAGE:
+POcppO INPUT_FILE_NAME
+or
+POCS INPUT_FILE_NAME
+
+THAT's all. Hope you enjoy it. 
+(sry for my bad english)
+
