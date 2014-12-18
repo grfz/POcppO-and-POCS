@@ -39,8 +39,8 @@ void  getty   (int);    /* accessors (get)
                            the parameter is the field position within the class */
 void  setty   (int);    /* accessors (set)
                            the parameter is the field position within the class */
-void  load    ();       /* serialization- costructor from CSV file */
-void  save    ();       /* serialization - save the object state on a CSV file */
+void  load    ();       /* serializer- costructor from CSV file */
+void  save    ();       /* serializer - save the object state on a CSV file */
 void  show    ();       /* su stdout */
 void  footer  ();    
 
@@ -227,7 +227,7 @@ void    prototypes () {
   fprintf(out, "%s*\tload_%s\t(FILE*,char);\n",
         struct_name,
         struct_name);
-  fprintf(out, "/* serializator */\n");
+  fprintf(out, "/* serializer */\n");
   fprintf(out, "void\tsave_%s\t(%s, FILE*, char, char);\n",
         struct_name,
         struct_name);
