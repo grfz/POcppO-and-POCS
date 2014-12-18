@@ -1,5 +1,0 @@
-Player
-int hp
-int max_dmg
-int dmg
-char* name
