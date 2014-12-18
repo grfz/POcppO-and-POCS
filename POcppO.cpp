@@ -1,5 +1,5 @@
 /* POcppO.cpp: create an header POcppO to manage a class
-Il file di input deve rispondere al seguente formato:
+Input file format:
 CLASSNAME  
 PROPERTY_TYPE_1 PROPERTY_NAME_1 
 PROPERTY_TYPE_2 PROPERTY_NAME_2
@@ -37,19 +37,19 @@ void  create  ();       /* constructor */
 void  clone   ();       /* constructor by copy */
 void  destroy ();       /* destructor */
 void  getty   (int);    /* accessors (get) 
-                           the parameter is the property position inside the class */
+                           the parameter is the property position within the class */
 void  setty   (int);    /* accessors (set)
-                           the parameter is the property position inside the class */
+                           the parameter is the property position within the class */
 void  load    ();       /* serialization- costructor from CSV file */
 void  save    ();       /* serialization - save the object state on a CSV file */
 void  show    ();       /* su stdout */
 void  footer  ();      
 
 char    *primitives_types[] = {"int","long","float","char"};
-typedef enum  {PRIMITIVE=0,STRING,HANDLER }   Tipo;
+typedef enum  {PRIMITIVE=0,STRING,HANDLER }   Type;
 char    *property_name [MAX_PROPERTIES];
 char    *property_type [MAX_PROPERTIES];
-Tipo    type[MAX_PROPERTIES];
+Type    type[MAX_PROPERTIES];
 int     property_number;
 char    *class_name;
 char    *class_name_upper; /* for #define in header file */
@@ -87,8 +87,8 @@ int main  (int argc, char** argv) {
     /* set the name */
     property_name[property_number] = read_field_from_csv(in, ' ');
     
-    printf("\t%s\t", property_type[property_number]);
-    printf("%s;\n", property_name[property_number]);
+    printf("%s\t", property_type[property_number]);
+    printf("%s;\n\t", property_name[property_number]);
     
     if (type[property_number] == HANDLER) 
             property_type[property_number] = clean_string (property_type[property_number], 1, '*');
@@ -189,10 +189,10 @@ void    prototypes () {
         break; }
     }
   }
-  fprintf(out, "\t\t/* distruttore */\n");
+  fprintf(out, "\t\t/* destructor */\n");
   fprintf(out, "\t\t~%s\t();\n",
             class_name);
-  fprintf(out, "\t\t/* costruttori */\n");
+  fprintf(out, "\t\t/* constructors */\n");
   fprintf(out, "\t\t%s\t(",
     class_name);
   for (i = 0; i < property_number; i++) {
@@ -217,9 +217,9 @@ void    prototypes () {
         class_name);
   fprintf(out, "\t\t%s\t(FILE*);\n",
         class_name);
-  fprintf(out, "\t\t/* serializzatore */\n");
+  fprintf(out, "\t\t/* serializator */\n");
   fprintf(out, "\t\tvoid\tsave\t( FILE*, char, char);\n");
-  fprintf(out,"\t\t/* altro */\n");
+  fprintf(out,"\t\t/* others */\n");
   fprintf(out, "\t\tvoid\tshow\t();\n};\n\n");
 }
 

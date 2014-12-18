@@ -1,0 +1,4 @@
+Student
+char* name
+int age
+Data* birth_date
