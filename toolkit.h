@@ -5,7 +5,7 @@
 #include	<string.h>	/* for strdup() */
  
 #define		MAX_STR	4096
-/* ripulisce una stringa dai caratteri indicati */
+/* clean a string from characters */
 char	*clean_string	(char	*s, int n_param, ...)	{
 	char	*temp, *saved;
 	int 	found, index;
