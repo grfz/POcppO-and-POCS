@@ -514,7 +514,7 @@ void  save  ()  {
         (i<field_number-1)? "separator" : "terminator");
       break; }
     case STRING: {
-		  fprintf(out, "\tfprintf(fp,\"%%s%%c\",a.%s);", 
+		  fprintf(out, "\tfprintf(fp,\"%%s%%c\",a.%s,%s);", 
         field_name[i],
         (i<field_number-1)? "separator" : "terminator");
 		  break; }
